@@ -39,16 +39,19 @@ const Card = () => {
           <FontAwesomeIcon icon={faEllipsisH} />
         </div>
 
-        <div className={classNames('modalBlock', { hidden: !isModal })} >
-          <div>
-            <FontAwesomeIcon icon={faPencilAlt} />
-            <p>Редактировать</p>
+        {isModal ? (
+          <div className="modalBlock">
+            <div>
+              <FontAwesomeIcon icon={faPencilAlt} />
+              <p>Редактировать</p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faTrashAlt} />
+              <p>Удалить</p>
+            </div>
           </div>
-          <div>
-            <FontAwesomeIcon icon={faTrashAlt} />
-            <p>Удалить</p>
-          </div>
-        </div>
+        )
+          : false}
 
         <div className="photoCard">
           {/* <img src={girafes[0].avatar} alt="motilda" className="photo" /> */}

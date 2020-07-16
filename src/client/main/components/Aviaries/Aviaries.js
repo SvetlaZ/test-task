@@ -31,6 +31,9 @@ const Aviaries = () => {
     <StyleAviaries>
       <Card />
       <Card />
+      <Card />
+      <Card />
+      <Card />
     </StyleAviaries>
   )
 }

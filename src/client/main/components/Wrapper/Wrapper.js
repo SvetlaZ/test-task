@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import logo from './logo.png'
 import StyleWrapper from './style.Wrapper';
+
+import Aviaries from '../Aviaries/Aviaries'
 const classNames = require('classnames');
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -45,6 +47,8 @@ const menu = [
 ];
 
 const Wrapper = () => {
+  const [info, setInfo] = useState(true);
+
   return (
     <StyleWrapper>
       <div className="menu">
@@ -72,6 +76,16 @@ const Wrapper = () => {
       </div>
 
       <div className="aviaries">
+        <Aviaries />
+        {info ? (
+          <div className="info">
+            <label htmlFor="farm"><span>75%</span>Заполнение вольера</label>
+            <progress id="farm" max="100" value="75"></progress>
+            <button type="button">Информация</button>
+          </div>
+        )
+          : false}
+
       </div>
     </StyleWrapper>
   )

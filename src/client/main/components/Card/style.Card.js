@@ -5,9 +5,10 @@ export default style.div`
   flex-direction: colomn;
   justify-content: center;
   background: #F3DBC7;
-  width: 236px;
+  min-width: 236px;
   height: 495px;
   border-radius: 28px;
+  margin-right: 33px;
 
   .modal_icon {
     margin-top: 13px;
@@ -57,10 +58,6 @@ export default style.div`
         background: #567354;
       }
     }
-  }
-
-  .hidden {
-    display: none;
   }
 
   .photoCard {

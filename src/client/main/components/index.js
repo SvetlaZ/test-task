@@ -11,8 +11,8 @@ function App() {
       {/* <h1 style={{ textAlign: 'center', textTransform: 'uppercase' }}>Let's start dev</h1>
             <UploadExample/> */}
 
-      {/* <Wrapper /> */}
-      <Aviaries />
+      <Wrapper />
+      {/* <Aviaries /> */}
     </div>
   )
 }
