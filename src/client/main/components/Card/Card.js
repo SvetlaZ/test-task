@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import motilda from './images/motilda.png';
 import StyleCard from './style.Card';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,7 +23,17 @@ const girafes = [
   },
 ];
 
-const Card = () => {
+const Card = ({
+  src,
+  name,
+  // avatar: 'image/f1926aba2300fda67144c2cd9b71755c.jpg',
+  sex,
+  weight,
+  height,
+  color,
+  dieta,
+  character,
+}) => {
   const [isModal, setIsModal] = useState(false);
 
   const onModalHandler = useCallback((isMod) => {
@@ -54,23 +63,22 @@ const Card = () => {
           : false}
 
         <div className="photoCard">
-          {/* <img src={girafes[0].avatar} alt="motilda" className="photo" /> */}
-          <img src={motilda} alt="motilda" className="photo" />
+          <img src={src} alt="Photo" className="photo" />
         </div>
-        <p className="name">{girafes[0].name}</p>
+        <p className="name">{name}</p>
         <div className="icon_img">
           <FontAwesomeIcon icon={faVenusMars} />
           <FontAwesomeIcon icon={faBalanceScale} />
           <FontAwesomeIcon icon={faRulerVertical} />
         </div>
         <div className="icon_input">
-          <span>{girafes[0].sex}</span>
-          <span>{girafes[0].weight}</span>
-          <span>{girafes[0].height}</span>
+          <span>{sex}</span>
+          <span>{weight}</span>
+          <span>{height}</span>
         </div>
-        <p className="description">Цвет: <span>{girafes[0].color}</span></p>
-        <p className="description">Диета: <span>{girafes[0].dieta}</span></p>
-        <p className="description">Характер: <span>{girafes[0].character}</span></p>
+        <p className="description">Цвет: <span>{color}</span></p>
+        <p className="description">Диета: <span>{dieta}</span></p>
+        <p className="description">Характер: <span>{character}</span></p>
       </div>
     </StyleCard>
   )

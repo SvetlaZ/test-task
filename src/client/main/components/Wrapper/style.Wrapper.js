@@ -81,9 +81,48 @@ export default style.div`
     margin-left: 25px;
     padding-left: 50px; 
     padding-right: 40px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    position: relative;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        ul {
+          display: flex;
+          list-style-type: none;
+        }
+
+        img {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    .headerName {
+      display: flex;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      color: #567354;
+      margin-top: 35px;
+      margin-bottom: 26px;
+
+      h1 {
+        margin: 0;
+        font-size: 32px;
+        margin-right: 10px;
+      }
+
+      svg {
+        font-size: 32px;
+      }
+    }
 
     .info {
       position: fixed;
@@ -93,7 +132,8 @@ export default style.div`
       border-radius: 28px 28px 0 0;
       padding: 22px 9px 30px 30px;
       right: 53px;
-      bottom: 9px;
+      position: absolute;
+      bottom: 0;
 
       label {
         color: #fff;

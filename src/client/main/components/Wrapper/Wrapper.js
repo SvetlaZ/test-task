@@ -12,6 +12,8 @@ import { faHorseHead } from '@fortawesome/free-solid-svg-icons'
 import { faUserFriends } from '@fortawesome/free-solid-svg-icons'
 import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faBell } from '@fortawesome/free-solid-svg-icons'
 
 const menu = [
   {
@@ -76,6 +78,27 @@ const Wrapper = () => {
       </div>
 
       <div className="aviaries">
+        <header>
+          <div>
+            <ul>
+              <li>Вольер 1</li>
+              <li>Вольер 2</li>
+              <li>Вольер 3</li>
+            </ul>
+            <FontAwesomeIcon icon={faPlusCircle} />
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faBell} />
+            <img src={logo} alt="" />
+            <span>hello@giraffe.com</span>
+          </div>
+        </header>
+        <progress id="av" max="100" value="5"></progress>
+
+        <div className="headerName">
+          <h1>Жирафы</h1>
+          <FontAwesomeIcon icon={faPlusCircle} />
+        </div>
         <Aviaries />
         {info ? (
           <div className="info">
