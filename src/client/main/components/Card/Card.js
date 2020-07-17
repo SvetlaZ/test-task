@@ -10,36 +10,27 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const classNames = require('classnames');
-const girafes = [
-  {
-    name: 'Мотильда',
-    avatar: 'image/f1926aba2300fda67144c2cd9b71755c.jpg',
-    sex: 'Ж',
-    weight: 800,
-    height: 4,
-    color: 'Стандартный',
-    dieta: 'Растительная',
-    character: 'Кокетка',
-  },
-];
 
 const Card = ({
   src,
   name,
-  // avatar: 'image/f1926aba2300fda67144c2cd9b71755c.jpg',
   sex,
   weight,
   height,
   color,
   dieta,
   character,
+  onDelete
 }) => {
   const [isModal, setIsModal] = useState(false);
 
   const onModalHandler = useCallback((isMod) => {
     setIsModal(!isMod);
   }, []);
-
+  const onDeleteHandler = useCallback(() => {
+    setIsModal(false);
+    onDelete();
+  }, []);
 
   return (
     <StyleCard>
@@ -54,7 +45,7 @@ const Card = ({
               <FontAwesomeIcon icon={faPencilAlt} />
               <p>Редактировать</p>
             </div>
-            <div>
+            <div onClick={onDeleteHandler}>
               <FontAwesomeIcon icon={faTrashAlt} />
               <p>Удалить</p>
             </div>

@@ -97,7 +97,8 @@ const Wrapper = () => {
 
         <div className="headerName">
           <h1>Жирафы</h1>
-          <FontAwesomeIcon icon={faPlusCircle} />
+
+          <FontAwesomeIcon icon={faPlusCircle} onClick={() => console.log('Plus')} />
         </div>
         <Aviaries />
         {info ? (
