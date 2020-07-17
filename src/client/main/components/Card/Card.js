@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import StyleCard from './style.Card';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,6 +28,7 @@ const Card = ({
   const onModalHandler = useCallback((isMod) => {
     setIsModal(!isMod);
   }, []);
+
   const onDeleteHandler = () => {
     setIsModal(false);
     onDelete();
@@ -73,6 +75,30 @@ const Card = ({
       </div>
     </StyleCard>
   )
+};
+
+Card.propTypes = {
+  src: PropTypes.string,
+  name: PropTypes.string,
+  sex: PropTypes.string,
+  weight: PropTypes.string,
+  height: PropTypes.string,
+  color: PropTypes.string,
+  dieta: PropTypes.string,
+  character: PropTypes.string,
+  onDelete: PropTypes.func,
+};
+
+Card.defaultProps = {
+  src: '',
+  name: 'Имя',
+  sex: '-',
+  weight: '-',
+  height: '-',
+  color: '',
+  dieta: '',
+  character: '',
+  onDelete: () => { },
 };
 
 export default Card;
