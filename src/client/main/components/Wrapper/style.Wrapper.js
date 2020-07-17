@@ -121,6 +121,11 @@ export default style.div`
 
       svg {
         font-size: 32px;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.2);
+        }
       }
     }
 

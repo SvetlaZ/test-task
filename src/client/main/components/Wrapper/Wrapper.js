@@ -50,6 +50,7 @@ const menu = [
 
 const Wrapper = () => {
   const [info, setInfo] = useState(true);
+  const [addCard, setAddCard] = useState(false);
 
   return (
     <StyleWrapper>
@@ -97,10 +98,11 @@ const Wrapper = () => {
 
         <div className="headerName">
           <h1>Жирафы</h1>
-
-          <FontAwesomeIcon icon={faPlusCircle} onClick={() => console.log('Plus')} />
+          <FontAwesomeIcon icon={faPlusCircle} onClick={() => setAddCard(true)} />
         </div>
-        <Aviaries />
+        <Aviaries
+        // onAdd={add}
+        />
         {info ? (
           <div className="info">
             <label htmlFor="farm"><span>75%</span>Заполнение вольера</label>

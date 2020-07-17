@@ -73,14 +73,14 @@ if (!localStorage.getItem('giraffes')) {
 
 const Aviaries = () => {
   const [giraffeCards, setGiraffeCards] = useState(JSON.parse(localStorage.getItem('giraffes')));
-
+  console.log(giraffeCards);
   const onDelete = useCallback((id) => {
     console.log('id', id)
     const currentGiraffesList = giraffeCards.filter((item) => (item.id !== id));
     setGiraffeCards(currentGiraffesList);
-    // console.log('after filter: ', giraffeCards);
-    // console.log('after filter: ', currentGiraffesList);
-  }, [giraffeCards]);
+    console.log('after filter: ', giraffeCards);
+    console.log('after filter: ', currentGiraffesList);
+  }, [giraffeCards, setGiraffeCards]);
 
   useEffect(() => {
     console.log('giraffeCards useEffect: ', giraffeCards)

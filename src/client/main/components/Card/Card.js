@@ -27,10 +27,10 @@ const Card = ({
   const onModalHandler = useCallback((isMod) => {
     setIsModal(!isMod);
   }, []);
-  const onDeleteHandler = useCallback(() => {
+  const onDeleteHandler = () => {
     setIsModal(false);
     onDelete();
-  }, []);
+  };
 
   return (
     <StyleCard>
