@@ -49,10 +49,22 @@ export default style.div`
         color: #D9D9D9;
         line-height: 0px;
       }
+    }
 
+    .bell {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 21px;
+        height: 28px;
+        color: #567354;
+      }
+      
       img {
         width: 34px;
         height: 34px;
+        margin: 0 20px;
       }
     }
   }
@@ -121,24 +133,42 @@ export default style.div`
       }
     }
 
-    progress {
-      width: 323px;
-      height: 31px;
-    }
+    div {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
 
-    button {
-      width: 110px;
-      height: 31px;
-      background: #435F40;
-      border-radius: 35px;
-      border: none;
-      color: #fff;
-      font-size: 12px;
-      outline: none;
+      progress {
+        width: 315px;
+        height: 31px;
+        margin-right: 23px;
+        background: #668663;
 
-      &:hover {
-        cursor: pointer;
-        background: #2d402b;
+        ::-webkit-progress-value {
+          background: #F3DBC7;
+          border-radius: 35px;
+        }
+        ::-webkit-progress-bar {
+          background: #435F40;
+          padding: 4px;
+          border-radius: 35px;
+        }
+      }
+    
+      button {
+        width: 110px;
+        height: 31px;
+        background: #435F40;
+        border-radius: 35px;
+        border: none;
+        color: #fff;
+        font-size: 12px;
+        outline: none;
+  
+        &:hover {
+          cursor: pointer;
+          background: #2d402b;
+        }
       }
     }
   }

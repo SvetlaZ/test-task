@@ -121,7 +121,7 @@ const Aviaries = () => {
             </ul>
             <FontAwesomeIcon icon={faPlusCircle} />
           </div>
-          <div>
+          <div className="bell">
             <FontAwesomeIcon icon={faBell} />
             <img src={logo} alt="" />
             <span>hello@giraffe.com</span>
@@ -154,31 +154,16 @@ const Aviaries = () => {
         </div>
         {info ? (
           <div className="info">
-            <label htmlFor="farm"><span>75%</span>Заполнение вольера</label>
-            <progress id="farm" max="100" value="75"></progress>
-            <button type="button">Информация</button>
+            <label htmlFor="farm"><span>{(giraffeCards.length / 10) * 100}%</span>Заполнение вольера</label>
+            <div>
+              <progress id="farm" max="100" value={(giraffeCards.length / 10) * 100}></progress>
+              <button type="button">Информация</button>
+            </div>
           </div>
         )
           : false}
 
       </div>
-      {/* {
-        giraffeCards.map((item) => {
-          const { id, src, name, sex, weight, height, color, dieta, character } = item;
-          return (< Card
-            key={id}
-            src={src}
-            name={name}
-            sex={sex}
-            weight={weight}
-            height={height}
-            color={color}
-            dieta={dieta}
-            character={character}
-            onDelete={() => onDelete(id)}
-          />)
-        })
-      } */}
     </StyleAviaries>
   )
 }
