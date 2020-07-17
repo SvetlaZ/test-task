@@ -18,7 +18,6 @@ export default style.div`
 
     div {
       margin-top: 29px;
-      margin-bottom: 11px;
       display: flex;
 
       ul {
@@ -66,7 +65,19 @@ export default style.div`
         height: 34px;
         margin: 0 20px;
       }
+
+      span {
+        font-weight: 300;
+        font-size: 16px;
+        color: #484848;
+      }
     }
+  }
+
+  hr {
+    height: 3px;
+    background: #D9D9D9;
+    border: none;
   }
 
   .headerName {

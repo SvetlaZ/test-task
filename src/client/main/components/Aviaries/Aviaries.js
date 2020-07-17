@@ -127,7 +127,7 @@ const Aviaries = () => {
             <span>hello@giraffe.com</span>
           </div>
         </header>
-        <progress id="av" max="100" value="5"></progress>
+        <hr />
 
         <div className="headerName">
           <h1>Жирафы</h1>

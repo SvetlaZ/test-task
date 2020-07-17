@@ -27,10 +27,10 @@ export default style.div`
         font-size: 10px;
         line-height: 12px;
         color: #fff;
-
-        .farm_farm {
-          font-weight: bold;
-        }
+      }
+      
+      .farm_farm {
+        font-weight: bold;
       }
     }
   }
