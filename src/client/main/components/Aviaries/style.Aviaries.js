@@ -108,6 +108,7 @@ export default style.div`
   .cardBlock {
     display: flex;
     overflow-x: auto;
+    height: 535px;
 
     ::-webkit-scrollbar {
       display: none;
