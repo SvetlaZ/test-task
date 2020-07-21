@@ -1,6 +1,7 @@
 import style from 'styled-components';
 
 export default style.div`
+  position: relative;
   display: flex;
   flex-direction: colomn;
   justify-content: center;
@@ -10,8 +11,61 @@ export default style.div`
   border-radius: 28px;
   margin-right: 33px;
 
+  .edit {
+    height: 535px;
+    box-shadow: 0px 4px 15px #869CB0;
+    width: 100%;
+    border-radius: 28px;
+    background: #F3DBC7;
+
+    button {
+      width: 129px;
+      height: 39px;
+      background: #567354;
+      border-radius: 33px;
+      margin: 0 auto;
+      color: #fff;
+      border: none;
+      font-family: Roboto;
+      font-weight: 500;
+      font-size: 16px;
+
+      :hover {
+        cursor: pointer;
+        background: #2d402b;
+      }
+    }
+
+    input {
+      border-radius: 35px;
+      border: 1px solid;
+      width: 120px;
+
+      :focus {
+        border-radius: 0;
+      }
+    }
+
+    .name {
+      width: 150px;
+      margin-top: 20px;
+    }
+
+    .icon_img {
+      margin: 14px;
+    }
+
+    .icon_input {
+      margin-top: 14px;
+      select, input {
+        width: 50px;
+        text-align: center;
+      }
+    }
+  }
+
   .modal_icon {
-    margin-top: 13px;
+    margin-top: 20px;
     text-align: end;
     color: #435F40;
 
@@ -26,11 +80,13 @@ export default style.div`
     align-items: center;
     position: fixed;
     margin-left: 160px;
+    margin-top: 40px;
     width: 174px;
     height: 94px;
     background: #668663;
     border-radius: 20px;
-    color: #fff;  
+    color: #fff;
+    z-index: 10;
 
     div {
       display: flex;

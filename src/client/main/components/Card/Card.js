@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import StyleCard from './style.Card';
 
@@ -21,9 +21,29 @@ const Card = ({
   color,
   dieta,
   character,
-  onDelete
+  onDelete,
+  onEdit,
 }) => {
   const [isModal, setIsModal] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+
+  // const [nameState, setNameState] = useState(name);
+  // const [sexState, setSexState] = useState(sex);
+  // const [weightState, setWeightState] = useState(weight);
+  // const [heightState, setHeightState] = useState(height);
+  // const [colorState, setColorState] = useState(color);
+  // const [dietaState, setDietaState] = useState(dieta);
+  // const [characterState, setCharacterState] = useState(character);
+  const [giraffe, setGiraffe] = useState({
+    src,
+    name,
+    sex,
+    weight,
+    height,
+    color,
+    dieta,
+    character,
+  });
 
   const onModalHandler = useCallback((isMod) => {
     setIsModal(!isMod);
@@ -34,46 +54,94 @@ const Card = ({
     onDelete();
   };
 
+  const handlerChange = useCallback((field) => {
+    const editedGiraffe = giraffe;
+    editedGiraffe[field] = event.target.value;
+    setGiraffe(Object.create(editedGiraffe));
+  }, [giraffe]);
+
   return (
     <StyleCard>
-      <div>
-        <div className="modal_icon" onClick={() => { onModalHandler(isModal) }} >
-          <FontAwesomeIcon icon={faEllipsisH} />
+      {/* <div> */}
+      {isModal ? (
+        <div className="modalBlock">
+          <div onClick={() => { setIsEdit(true); setIsModal(false) }}>
+            <FontAwesomeIcon icon={faPencilAlt} />
+            <p>Редактировать</p>
+          </div>
+          <div onClick={onDeleteHandler}>
+            <FontAwesomeIcon icon={faTrashAlt} />
+            <p>Удалить</p>
+          </div>
         </div>
+      )
+        : false}
 
-        {isModal ? (
-          <div className="modalBlock">
-            <div>
-              <FontAwesomeIcon icon={faPencilAlt} />
-              <p>Редактировать</p>
+      {isEdit ? (
+        <div className="edit">
+          <div className="modal_icon" onClick={() => { onModalHandler(isModal) }} >
+            <FontAwesomeIcon icon={faEllipsisH} />
+          </div>
+          <div className="photoCard">
+            <img src={src} alt="Photo" className="photo" />
+          </div>
+          <input className="name" type="text" value={giraffe.name} onChange={() => handlerChange('name')} />
+          <div className="icon_img">
+            <label htmlFor="sex"><FontAwesomeIcon icon={faVenusMars} /></label>
+            <label htmlFor="weight"><FontAwesomeIcon icon={faBalanceScale} /></label>
+            <label htmlFor="height"><FontAwesomeIcon icon={faRulerVertical} /></label>
+          </div>
+          <div className="icon_input">
+            <select type="text" id="sex" value={giraffe.sex} onChange={() => handlerChange('sex')} >
+              <option value="М">М</option>
+              <option value="Ж">Ж</option>
+            </select>
+            <input type="text" id="weight" value={giraffe.weight} onChange={() => handlerChange('weight')} />
+            <input type="text" id="height" value={giraffe.height} onChange={() => handlerChange('height')} />
+          </div>
+          <p className="description">
+            <label htmlFor="color">Цвет: </label>
+            <input type="text" id="color" value={giraffe.color} onChange={() => handlerChange('color')} />
+          </p>
+          <p className="description">
+            <label htmlFor="dieta">Диета: </label>
+            <input type="text" id="dieta" value={giraffe.dieta} onChange={() => handlerChange('dieta')} />
+          </p>
+          <p className="description">
+            <label htmlFor="character">Характер: </label>
+            <input type="text" id="character" value={giraffe.character} onChange={() => handlerChange('character')} />
+          </p>
+
+          <button type="button" onClick={() => { onEdit(giraffe); setIsEdit(false) }}>Сохранить</button>
+        </div>
+      )
+        : (
+          <div>
+            <div className="modal_icon" onClick={() => { onModalHandler(isModal) }} >
+              <FontAwesomeIcon icon={faEllipsisH} />
             </div>
-            <div onClick={onDeleteHandler}>
-              <FontAwesomeIcon icon={faTrashAlt} />
-              <p>Удалить</p>
+            <div className="photoCard">
+              <img src={src} alt="Photo" className="photo" />
             </div>
+            <p className="name">{name}</p>
+            <div className="icon_img">
+              <FontAwesomeIcon icon={faVenusMars} />
+              <FontAwesomeIcon icon={faBalanceScale} />
+              <FontAwesomeIcon icon={faRulerVertical} />
+            </div>
+            <div className="icon_input">
+              <span>{sex}</span>
+              <span>{weight}</span>
+              <span>{height}</span>
+            </div>
+            <p className="description">Цвет: <span>{color}</span></p>
+            <p className="description">Диета: <span>{dieta}</span></p>
+            <p className="description">Характер: <span>{character}</span></p>
           </div>
         )
-          : false}
-
-        <div className="photoCard">
-          <img src={src} alt="Photo" className="photo" />
-        </div>
-        <p className="name">{name}</p>
-        <div className="icon_img">
-          <FontAwesomeIcon icon={faVenusMars} />
-          <FontAwesomeIcon icon={faBalanceScale} />
-          <FontAwesomeIcon icon={faRulerVertical} />
-        </div>
-        <div className="icon_input">
-          <span>{sex}</span>
-          <span>{weight}</span>
-          <span>{height}</span>
-        </div>
-        <p className="description">Цвет: <span>{color}</span></p>
-        <p className="description">Диета: <span>{dieta}</span></p>
-        <p className="description">Характер: <span>{character}</span></p>
-      </div>
-    </StyleCard>
+      }
+      {/* </div > */}
+    </StyleCard >
   )
 };
 
