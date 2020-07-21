@@ -67,6 +67,10 @@ export default style.div`
         text-align: center;
       }
     }
+
+    .photo:hover {
+      cursor: pointer;
+    }
   }
 
   .modal_icon {
@@ -123,6 +127,27 @@ export default style.div`
 
   .photoCard {
     display: flex;
+
+    label[for="file"] {
+      display: block;
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      position: absolute;
+      opacity: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+    
+    button {
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+      top: 140px;
+      width: 100px;
+      height: 30px;
+    }
   }
 
   .photo {

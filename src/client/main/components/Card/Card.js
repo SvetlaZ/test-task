@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import UploadExample from '../UploadExample'
 import StyleCard from './style.Card';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -49,9 +50,7 @@ const Card = ({
   };
 
   const onEditHandler = () => {
-    console.dir(giraffe);
     onEdit(giraffe);
-    console.dir(giraffe);
     setIsEdit(false);
   }
 
@@ -85,6 +84,7 @@ const Card = ({
           </div>
           <div className="photoCard">
             <img src={src} alt="Photo" className="photo" />
+            <UploadExample />
           </div>
           <input className="name" type="text" value={giraffe.name} onChange={() => handlerChange('name')} />
           <div className="icon_img">

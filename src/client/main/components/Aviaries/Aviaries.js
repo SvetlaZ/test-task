@@ -94,7 +94,6 @@ const Aviaries = () => {
     }];
     const giraffesList = newCard.concat(giraffeCards);
     setGiraffeCards(giraffesList);
-    console.log('with add card: ', giraffeCards);
   }, [giraffeCards, setGiraffeCards]);
 
   const onDelete = useCallback((id) => {
@@ -103,18 +102,15 @@ const Aviaries = () => {
   }, [giraffeCards, setGiraffeCards]);
 
   const onEdit = useCallback((id, newGiraffe) => {
-    console.log('newGiraffe Edit: ', newGiraffe);
     const currentGiraffesList = giraffeCards.map((item) => (item.id !== id ? item : newGiraffe));
     setGiraffeCards(currentGiraffesList);
   }, [giraffeCards, setGiraffeCards]);
 
   useEffect(() => {
-    console.log('giraffeCards useEffect: ', giraffeCards)
     localStorage.setItem('giraffes', JSON.stringify(giraffeCards));
   }, [giraffeCards]);
   return (
     <StyleAviaries>
-      {console.log('cards: ', giraffeCards)}
       <div>
         <header>
           <div>
