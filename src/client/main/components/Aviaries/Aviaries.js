@@ -81,7 +81,6 @@ const Aviaries = () => {
   const [info, setInfo] = useState(true);
 
   const addCard = useCallback(() => {
-    console.log('добавляю карточку');
     const newCard = [{
       id: giraffeCards.reduce((max, item) => item.id > max ? item.id : max, 0) + 1,
       src: defImage,
@@ -104,6 +103,7 @@ const Aviaries = () => {
   }, [giraffeCards, setGiraffeCards]);
 
   const onEdit = useCallback((id, newGiraffe) => {
+    console.log('newGiraffe Edit: ', newGiraffe);
     const currentGiraffesList = giraffeCards.map((item) => (item.id !== id ? item : newGiraffe));
     setGiraffeCards(currentGiraffesList);
   }, [giraffeCards, setGiraffeCards]);
@@ -112,7 +112,6 @@ const Aviaries = () => {
     console.log('giraffeCards useEffect: ', giraffeCards)
     localStorage.setItem('giraffes', JSON.stringify(giraffeCards));
   }, [giraffeCards]);
-  console.log('rerender')
   return (
     <StyleAviaries>
       {console.log('cards: ', giraffeCards)}
@@ -144,6 +143,7 @@ const Aviaries = () => {
               const { id, src, name, sex, weight, height, color, dieta, character } = item;
               return (< Card
                 key={id}
+                id={id}
                 src={src}
                 name={name}
                 sex={sex}

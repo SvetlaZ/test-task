@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import StyleCard from './style.Card';
 
@@ -13,6 +13,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 const classNames = require('classnames');
 
 const Card = ({
+  id,
   src,
   name,
   sex,
@@ -26,15 +27,8 @@ const Card = ({
 }) => {
   const [isModal, setIsModal] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
-
-  // const [nameState, setNameState] = useState(name);
-  // const [sexState, setSexState] = useState(sex);
-  // const [weightState, setWeightState] = useState(weight);
-  // const [heightState, setHeightState] = useState(height);
-  // const [colorState, setColorState] = useState(color);
-  // const [dietaState, setDietaState] = useState(dieta);
-  // const [characterState, setCharacterState] = useState(character);
   const [giraffe, setGiraffe] = useState({
+    id,
     src,
     name,
     sex,
@@ -54,10 +48,17 @@ const Card = ({
     onDelete();
   };
 
+  const onEditHandler = () => {
+    console.dir(giraffe);
+    onEdit(giraffe);
+    console.dir(giraffe);
+    setIsEdit(false);
+  }
+
   const handlerChange = useCallback((field) => {
-    const editedGiraffe = giraffe;
+    const editedGiraffe = JSON.parse(JSON.stringify(giraffe));
     editedGiraffe[field] = event.target.value;
-    setGiraffe(Object.create(editedGiraffe));
+    setGiraffe(editedGiraffe);
   }, [giraffe]);
 
   return (
@@ -93,6 +94,7 @@ const Card = ({
           </div>
           <div className="icon_input">
             <select type="text" id="sex" value={giraffe.sex} onChange={() => handlerChange('sex')} >
+              <option value="-">-</option>
               <option value="М">М</option>
               <option value="Ж">Ж</option>
             </select>
@@ -112,11 +114,11 @@ const Card = ({
             <input type="text" id="character" value={giraffe.character} onChange={() => handlerChange('character')} />
           </p>
 
-          <button type="button" onClick={() => { onEdit(giraffe); setIsEdit(false) }}>Сохранить</button>
+          <button type="button" onClick={onEditHandler}>Сохранить</button>
         </div>
       )
         : (
-          <div>
+          <div className="cardWrapper">
             <div className="modal_icon" onClick={() => { onModalHandler(isModal) }} >
               <FontAwesomeIcon icon={faEllipsisH} />
             </div>

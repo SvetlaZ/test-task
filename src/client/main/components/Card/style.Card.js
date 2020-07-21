@@ -12,13 +12,17 @@ export default style.div`
   margin-right: 33px;
 
   .edit {
-    height: 535px;
-    box-shadow: 0px 4px 15px #869CB0;
-    width: 100%;
-    border-radius: 28px;
+    box-shadow: 0px 0px 5px #869CB0;
+    // width: 100%;
     background: #F3DBC7;
+    min-width: 236px;
+    height: 535px;
+    border-radius: 28px;
+    padding: 0 20px;
+    // margin-right: 33px;
 
     button {
+      display: block;
       width: 129px;
       height: 39px;
       background: #567354;
@@ -47,8 +51,9 @@ export default style.div`
     }
 
     .name {
+      display: block;
+      margin: 20px auto;
       width: 150px;
-      margin-top: 20px;
     }
 
     .icon_img {
@@ -178,6 +183,5 @@ export default style.div`
       color: #333333;
     }
   }
-
   
 `;
